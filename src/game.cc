@@ -1,10 +1,20 @@
 #include "game.h"
-#include "SDL/SDL.h"
-#include <iostream>
+#include <SDL/SDL.h>
+
+namespace {
+  const int kScreenWidth = 640;
+  const int kScreenHeight = 480;
+  const int kBitsPerPixel = 32;
+  const int kFps = 60;
+}
 
 Game::Game() {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	screen_ = SDL_SetVideoMode(640, 480, 32, SDL_FULLSCREEN);
+  SDL_ShowCursor(SDL_DISABLE);
+	screen_ = SDL_SetVideoMode(kScreenWidth, 
+                             kScreenHeight, 
+                             kBitsPerPixel, 
+                             SDL_RESIZABLE);
 	eventLoop();
 }
 
@@ -41,7 +51,7 @@ void Game::eventLoop() {
 		//				   1000/60ths ms
 		// Offset delay by how long this loop took to run as to not wait too long (subtract start time in milliseconds).
 		const int elapsed_time_ms = SDL_GetTicks() - start_time_ms;
-		SDL_Delay(1000 /* ms* */ / 60 /*fps*/ - elapsed_time_ms /*ms*/ );
+		SDL_Delay(1000 /* ms* */ / kFps /*fps*/ - elapsed_time_ms /*ms*/ );
 	}
 }
 
