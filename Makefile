@@ -1,4 +1,4 @@
 compile:
-	g++ -o gen/cavestory src/**.cc -lSDL
+	clang++ -o gen/cavestory src/**.cc -lSDL
 run:
 	gen/cavestory
