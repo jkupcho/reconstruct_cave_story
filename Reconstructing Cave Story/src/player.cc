@@ -2,7 +2,7 @@
 #include "game.h"
 #include "animated_sprite.h"
 
-#include <cmath>
+#include "windows.h"
 
 namespace {
    const float kSlowdownFactor = 0.8f;
@@ -27,9 +27,9 @@ void Player::update(int elapsed_time_ms) {
    x_ += round(velocity_x_ * elapsed_time_ms);
    velocity_x_ += acceleration_x_ * elapsed_time_ms;
    if (acceleration_x_ < 0.0f) {
-      velocity_x_ = std::max(velocity_x_, -kMaxSpeedX);
+      velocity_x_ = max(velocity_x_, -kMaxSpeedX);
    } else if (acceleration_x_ > 0.0f) { 
-      velocity_x_ = std::min(velocity_x_, kMaxSpeedX);
+      velocity_x_ = min(velocity_x_, kMaxSpeedX);
    } else {
       velocity_x_ *= kSlowdownFactor;
    }
