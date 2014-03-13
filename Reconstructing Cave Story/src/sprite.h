@@ -7,19 +7,20 @@
 struct Graphics;
 
 struct Sprite {
-  Sprite(const std::string& file_path,
-         int source_x, int source_y,
-         int width, int height);
-  virtual ~Sprite();
+   Sprite(Graphics& graphics,
+      const std::string& file_path,
+      int source_x, int source_y,
+      int width, int height);
+   virtual ~Sprite();
 
-  virtual void update(int /*elapsed time in ms*/) {}
-  void draw(Graphics& graphics, int x, int y);
+   virtual void update(int /*elapsed time in ms*/) {}
+   void draw(Graphics& graphics, int x, int y);
 
-  protected:
-    SDL_Rect source_rect_;
-    
-  private:
-    SDL_Surface* sprite_sheet_;
+protected:
+   SDL_Rect source_rect_;
+
+private:
+   SDL_Surface* sprite_sheet_;
 };
 
 #endif

@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Reconstructing Cave Story", "Reconstructing Cave Story\Reconstructing Cave Story.vcxproj", "{596EF595-4DF3-4BBB-94F3-0AA1CA364D40}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project1", "Project1\Project1.vcxproj", "{109974F6-203A-4811-811C-CAEA8751DDC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{596EF595-4DF3-4BBB-94F3-0AA1CA364D40}.Debug|Win32.Build.0 = Debug|Win32
 		{596EF595-4DF3-4BBB-94F3-0AA1CA364D40}.Release|Win32.ActiveCfg = Release|Win32
 		{596EF595-4DF3-4BBB-94F3-0AA1CA364D40}.Release|Win32.Build.0 = Release|Win32
+		{109974F6-203A-4811-811C-CAEA8751DDC6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{109974F6-203A-4811-811C-CAEA8751DDC6}.Debug|Win32.Build.0 = Debug|Win32
+		{109974F6-203A-4811-811C-CAEA8751DDC6}.Release|Win32.ActiveCfg = Release|Win32
+		{109974F6-203A-4811-811C-CAEA8751DDC6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
