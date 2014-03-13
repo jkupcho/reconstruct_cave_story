@@ -2,21 +2,24 @@
 #include <SDL/SDL.h>
 
 namespace {
-  const int kScreenWidth = 640;
-  const int kScreenHeight = 480;
-  const int kBitsPerPixel = 32;
-  const int kFps = 60;
+   const int kScreenWidth = 640;
+   const int kScreenHeight = 480;
+   const int kBitsPerPixel = 32;
+   const int kFps = 60;
 }
 
 Graphics::Graphics() {
-	screen_ = SDL_SetVideoMode(kScreenWidth, 
-                             kScreenHeight, 
-                             kBitsPerPixel, 
-                             SDL_RESIZABLE);
+   screen_ = SDL_SetVideoMode(kScreenWidth,
+      kScreenHeight,
+      kBitsPerPixel,
+      SDL_RESIZABLE);
 }
 
 Graphics::~Graphics() {
-  SDL_FreeSurface(screen_);
+   for (SpriteMap::iterator iter = sprite_sheets_.begin(); iter != sprite_sheets_.end(); ++iter) {
+      SDL_FreeSurface(iter->second);
+   }
+   SDL_FreeSurface(screen_);
 }
 
 Graphics::SurfaceID Graphics::loadImage(const std::string& file_path) {
@@ -27,13 +30,13 @@ Graphics::SurfaceID Graphics::loadImage(const std::string& file_path) {
 }
 
 void Graphics::blitSurface(SurfaceID source,
-                SDL_Rect* source_rectangle,
-                SDL_Rect* destination_rectangle) {
-  SDL_BlitSurface(source, source_rectangle, screen_, destination_rectangle);
+   SDL_Rect* source_rectangle,
+   SDL_Rect* destination_rectangle) {
+   SDL_BlitSurface(source, source_rectangle, screen_, destination_rectangle);
 }
 
 void Graphics::flip() {
-  SDL_Flip(screen_);
+   SDL_Flip(screen_);
 }
 
 void Graphics::clear() {

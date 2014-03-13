@@ -20,7 +20,8 @@ struct Graphics {
    void flip();
    void clear();
 private:
-   std::map<std::string, SDL_Surface*> sprite_sheets_;
+   typedef std::map<std::string, SDL_Surface*> SpriteMap;
+   SpriteMap sprite_sheets_;
    SDL_Surface* screen_;
 };
 
